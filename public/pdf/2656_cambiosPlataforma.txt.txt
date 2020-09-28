@@ -1,0 +1,25 @@
+registro de expositores -> seco ->aumentar datos de registro de cuenta
+aprobado-> llenar datos de pago y stand cerrado
+dashboard->Menu p mostrar los 3 en una sola pagina
+datos de empresa->fijo y celular
+sucursal -> agregar telefono de la sucursal
+productos en foto vista previa (asi se veria la foto)
+ofertas-> calendario (de tal a tal fecha la oferta)
+agregar opcion personalizar stand->
+agenda de negocios->solo recibir
+
+stand->
+fotos de productos a tamaño cerrado
+subir pdfs de manera opcional
+Contacto->Agentes en línea
+Citas-> si es individual aviso, si entra como empresa si
+opcion de contactame en todas las paginas
+datos de contacto en acerca de nosotros y en contactos
+
+acerca de nosotros
+productos
+agentes en linea
+citas->agendar solo si es visitante calificado
+contacto
+
+redes sociales afuera y en pestaña de contacto y acerca de nosotros

@@ -1,0 +1,191 @@
+-
+-- Base de datos: `adecoinf_cobros`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cobros`
+--
+
+CREATE TABLE `cobros` (
+  `num_grl` int(11) NOT NULL DEFAULT '0',
+  `num_cond` int(11) DEFAULT NULL,
+  `cod_unidad` int(11) DEFAULT NULL,
+  `tipo_cobro` int(11) DEFAULT NULL,
+  `fecha_debito` date DEFAULT NULL,
+  `periodo` varchar(6) DEFAULT NULL,
+  `monto` float(9,2) DEFAULT NULL,
+  `moneda` tinyint(4) NOT NULL,
+  `estado` char(1) DEFAULT NULL,
+  `fecha_venc_multa` date DEFAULT NULL,
+  `tipo_multa` tinyint(4) DEFAULT NULL,
+  `monto_multa` float(9,2) DEFAULT NULL,
+  `fecha_ini_interes` date DEFAULT NULL,
+  `tasa` float DEFAULT NULL,
+  `monto_interes` float(9,2) DEFAULT NULL,
+  `operador_cobro` int(11) DEFAULT NULL,
+  `fecha_cobro` date DEFAULT NULL,
+  `hora_cobro` time DEFAULT NULL,
+  `monto_cobro` float(9,2) DEFAULT NULL,
+  `cod_qr` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `condominios`
+--
+
+CREATE TABLE `condominios` (
+  `cod_cond` int(11) NOT NULL,
+  `nombre_condominio` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `direccion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `abrev_cond` varchar(5) COLLATE utf8_spanish_ci DEFAULT '1',
+  `dia_fin` tinyint(4) DEFAULT '30',
+  `dia_plazo` tinyint(4) DEFAULT '0',
+  `tipo_multa` tinyint(4) DEFAULT '0',
+  `monto_multa` float DEFAULT '0',
+  `tasa_intereses` float NOT NULL DEFAULT '0',
+  `redondeo` tinyint(4) NOT NULL DEFAULT '0',
+  `fec_proc` date DEFAULT NULL,
+  `hora_proc` time DEFAULT NULL,
+  `operador` int(11) DEFAULT '1',
+  `estado` tinyint(4) DEFAULT '1',
+  `cambio_dolar` tinyint(4) NOT NULL,
+  `moneda` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `copropietarios`
+--
+
+CREATE TABLE `copropietarios` (
+  `cod_copro` int(11) NOT NULL DEFAULT '0',
+  `nom_tit` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `ape_pat_tit` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `ape_mat_tit` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `celular1` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
+  `celular2` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `email_personal` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `email_corporativo` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `cony_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `cony_ape_paterno` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `cony_ape_materno` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `login` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `estado` tinyint(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci PACK_KEYS=0 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `GenerateQR`
+--
+
+CREATE TABLE `GenerateQR` (
+  `QRId` int(11) NOT NULL,
+  `accountReference` varchar(20) NOT NULL,
+  `amount` decimal(15,2) NOT NULL,
+  `currency` varchar(3) NOT NULL,
+  `reference` varchar(20) NOT NULL,
+  `transactionId` int(11) NOT NULL,
+  `gloss` varchar(60) NOT NULL,
+  `expirationDate` date NOT NULL,
+  `base64` text NOT NULL,
+  `singleUse` varchar(1) NOT NULL,
+  `fecha_cobro` date NOT NULL,
+  `hora_cobro` time NOT NULL,
+  `estado` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_cobro`
+--
+
+CREATE TABLE `tipo_cobro` (
+  `tipo_cobro` int(11) NOT NULL DEFAULT '0',
+  `cod_cond` int(11) NOT NULL DEFAULT '0',
+  `nombre` varchar(50) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `token`
+--
+
+CREATE TABLE `token` (
+  `id_token` int(11) NOT NULL,
+  `apiKey` varchar(100) NOT NULL,
+  `userName` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `unidades`
+--
+
+CREATE TABLE `unidades` (
+  `cod_unidad` int(11) NOT NULL DEFAULT '0',
+  `cod_copro` int(11) NOT NULL DEFAULT '0',
+  `cod_cond` int(11) NOT NULL DEFAULT '0',
+  `codigo` varchar(50) DEFAULT NULL,
+  `nombre_inq` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(20) DEFAULT NULL,
+  `email` varchar(150) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0 ROW_FORMAT=DYNAMIC;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cobros`
+--
+ALTER TABLE `cobros`
+  ADD PRIMARY KEY (`num_grl`);
+
+--
+-- Indices de la tabla `condominios`
+--
+ALTER TABLE `condominios`
+  ADD PRIMARY KEY (`cod_cond`);
+
+--
+-- Indices de la tabla `copropietarios`
+--
+ALTER TABLE `copropietarios`
+  ADD PRIMARY KEY (`cod_copro`);
+
+--
+-- Indices de la tabla `GenerateQR`
+--
+ALTER TABLE `GenerateQR`
+  ADD PRIMARY KEY (`QRId`);
+
+--
+-- Indices de la tabla `tipo_cobro`
+--
+ALTER TABLE `tipo_cobro`
+  ADD PRIMARY KEY (`tipo_cobro`);
+
+--
+-- Indices de la tabla `token`
+--
+ALTER TABLE `token`
+  ADD PRIMARY KEY (`id_token`);
+
+--
+-- Indices de la tabla `unidades`
+--
+ALTER TABLE `unidades`
+  ADD PRIMARY KEY (`cod_unidad`);

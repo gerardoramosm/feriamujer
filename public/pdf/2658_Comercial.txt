@@ -1,0 +1,50 @@
+sistema
+correccion exportar sistema----REALIZADO
+--bdd
+---CREAR
+-contrato
+-registrar
+_estructura->pasar estructura
+___subrubro (definir estructura de subrubros)
+___otros->lo que era subrubro----REALIZADO
+---LEER
+_exportar
+__uso de filtros variados:
+___actividad principal
+___rubro
+___subrubro
+___otros
+__datos no actualizados los ultimos 6 meses
+_ficha de la empresa
+__poner lista de contratos
+__
+---ACTUALIZAR
+---ELIMINAR
+-cartas
+--gestion de cuentas
+---CREAR
+---LEER
+---ACTUALIZAR
+---ELIMINAR
+--contratos
+__
+--correspondencia
+___pasar ventana de muestreo a otra pestaña-----REALIZADO
+--contratos y empresas
+arriba y abajo navegador siguiente-----REALIZADO
+
+cartera de clientes
+--cuenta asignacion por andrea, 
+--incidencias de actividades sobre cuentas
+
+contratos
+-criterios: nombre contacto y nombre gerente----REALIZADO
+--area comercial debe llenar tamaño de empresa (categorizacion)----REALIZADO
+
+averiguaciones nuevas:
+--gestion de nuevos(nombre, contacto, telefono y correo, solicitud realizada)
+
+haz tu reunion en horas y dias especificos
+categorizacion a b c d----REALIZADO
+cumpleaños de la empresa----REALIZADO
+exportar lista
